@@ -22,3 +22,28 @@ public:
     }     
 };
 
+//参照官方题解
+class Solution{
+private:
+    int findIndex(vector<int>& nums,int target,bool left){
+        int l=0,r=nums.size();
+        while(l<r){
+            int mid=(l+r)/2;
+            if(nums[mid]>target||(left&&target==nums[mid]))
+                r=mid;
+            else
+                l=mid+1;
+        }
+        return l;
+    }
+public:
+vector<int> searchRange(vector<int>& nums, int target) {
+    vector<int> a={-1,-1};
+    int leftIdx=findIndex(nums,target,true);
+    if(leftIdx==nums.size()||nums[leftIdx]!=target)
+        return a;
+    a[0]=leftIdx;
+    a[1]=findIndex(nums,target,false)-1;
+    return a;
+    }
+};
