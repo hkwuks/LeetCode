@@ -5,10 +5,10 @@ public:
         vector<int> temp(3);
         int len=nums.size();
         if(len<3)return re;
-        sort(nums.begin(),nums.end());
+        sort(nums.begin(),nums.end());//排序
         for(int i=0;i<len;++i){
-            if(nums[i]>0)break;
-            if(i>0&&nums[i]==nums[i-1])continue;
+            if(nums[i]>0)break;//如果第一个数大于0，那么肯定没有解
+            if(i>0&&nums[i]==nums[i-1])continue;//去除重复
             int L=i+1;
             int R=len-1;
             while(L<R){
