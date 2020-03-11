@@ -9,8 +9,6 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        if(head == NULL || head->next == NULL)
-            return NULL;
         ListNode *p = head;
         ListNode *q = head;
         for(int i = 1; i <= n; i++) {
