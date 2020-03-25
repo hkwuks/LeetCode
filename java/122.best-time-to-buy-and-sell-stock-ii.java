@@ -9,7 +9,7 @@ class Solution{
         int max=0;
         for(int start=s;strat<prices.length;start++){
             int maxprofit=0;
-            for(int i-start+1;i<prices.length;i++){
+            for(int i=start+1;i<prices.length;i++){
                 if(prices[start]<prices[i]){
                     int profit=calculate(prices, i+1)+prices[i]-prices[start];
                     if(profit>maxprofit)
