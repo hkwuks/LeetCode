@@ -1,24 +1,18 @@
-class Solution{
-    public int maxProfit(int[] prices){
-        return calculate(prices,0);
-    }
-
-    public int calculate(int prices[],int s){
-        if(s>=prices.length)
+public class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices.length <= 1) {
             return 0;
-        int max=0;
-        for(int start=s;strat<prices.length;start++){
-            int maxprofit=0;
-            for(int i=start+1;i<prices.length;i++){
-                if(prices[start]<prices[i]){
-                    int profit=calculate(prices, i+1)+prices[i]-prices[start];
-                    if(profit>maxprofit)
-                        maxprofit=profit;
-                }
-            }
-            if(maxprofit>max)
-                max=maxprofit;
         }
-        return max;
+        int[] change = new int[prices.length - 1];
+        for (int i = 0; i < change.length; i++) {
+            change[i] = prices[i + 1] - prices[i];
+        }
+        int sum = 0;
+        for (int i = 0; i < change.length; i++) {
+            if (change[i]>0) {
+                sum+=change[i];
+            }
+        }
+        return sum;
     }
 }
