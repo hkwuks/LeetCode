@@ -15,3 +15,19 @@ public:
         return dp[size - 1];
     }
 };
+
+//此方法节省了空间复杂度
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if (nums.empty()) return 0;
+        if (nums.size() == 1) return nums[0];
+        int pre = 0, cur = 0, tmp;
+        for (int num : nums) {
+            tmp = cur;
+            cur = max(pre + num, cur);
+            pre = tmp;
+        }
+        return cur;
+    }
+};
