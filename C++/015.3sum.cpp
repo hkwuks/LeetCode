@@ -20,7 +20,6 @@ public:
                     --third;
                 if (second < third && sum == target)
                     ans.push_back({ nums[first], nums[second], nums[third] });
-
                 if (second == third) break;
             }
         }
@@ -28,13 +27,13 @@ public:
     }
 };
 
-//另一种写法，时间复杂度N*N
+//另一种写法
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> re;
         int len = nums.size();
-        if (len < 3)return re;
+        if (len < 3) return re;
         sort(nums.begin(), nums.end());
         for (int i = 0;i < len - 2;++i) {
             if (nums[i] > 0) break;//如果第一个数大于0，肯定没有解
