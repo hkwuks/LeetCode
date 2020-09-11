@@ -1,3 +1,4 @@
+//此算法十分巧妙
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
