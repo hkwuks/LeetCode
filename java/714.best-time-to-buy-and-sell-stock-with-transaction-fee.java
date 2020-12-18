@@ -1,3 +1,4 @@
+// 动态规划
 class Solution {
     public int maxProfit(int[] prices, int fee) {
         int n = prices.length;
@@ -11,19 +12,20 @@ class Solution {
     }
 }
 
+// 贪心算法
 class Solution {
     public int maxProfit(int[] prices,int fee) {
         int n = prices.length;
-        int buy = prices[0] - fee;
+        int buy = prices[0] + fee;
         int profit = 0;
         for (int i = 1; i < n; ++i) {
             if (prices[i] + fee < buy) {
                 buy = prices[i] + fee; // 如果决定再次进行交易，就将手续费计入成本
-            }
-            else if (prices[i] > buy) {
+            } else if (prices[i] > buy) {
                 profit += prices[i] - buy;
                 buy = prices[i]; // 将目前的可卖出价格和后面的价格进行比较
             }
         }
+        return profit;
     }
 }
