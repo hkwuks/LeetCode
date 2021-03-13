@@ -1,3 +1,4 @@
+// 41ms
 class Solution {
     public int coinChange(int[] coins, int amount) {
         if (amount < 1) {
@@ -33,6 +34,7 @@ class Solution {
     }
 }
 
+// 15ms
 class Solution {
     public int coinChange(int[] coins, int amount) {
         int max = amount + 1;
