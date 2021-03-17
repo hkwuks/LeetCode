@@ -22,3 +22,51 @@ class Solution {
         return ans;
     }
 }
+
+// 使用栈
+class Solution{
+    public int trap(int[] height) {
+        int ans = 0, current = 0;
+        Deque<Integer> stack = new LinkedList<Integer>();
+        while (current < height.length) {
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) { // 栈中放入的是比栈底小的数
+                int top = stack.pop();
+                if (stack.isEmpty())
+                    break;
+                int distance = current - stack.peek() - 1;
+                int bounded_height = Math.min(height[current], height[stack.peek()]) - height[top];
+                ans += distance * bounded_height;
+            }
+            stack.push(current++);
+        }
+        return ans;
+    }
+}
+
+// 双指针 较小的局部最大值和当前值的差一定可能装水
+class Solution{
+    public int trap(int[] height) {
+        int ans = 0;
+        int len = height.length;
+        int left = 0, right = len - 1;
+        int leftMax=0, rightMax = 0;
+        while (left < right) {
+            if (height[left] > height[right]) {
+                if (height[right] >= rightMax) {
+                    rightMax = height[right];
+                } else {
+                    ans += rightMax - height[right];
+                }
+                --right;
+            } else {
+                if (height[left] >= leftMax) {
+                    leftMax = height[left];
+                } else {
+                    ans += leftMax - height[left];
+                }
+                ++left;
+            }
+        }
+        return ans;
+    }
+}
