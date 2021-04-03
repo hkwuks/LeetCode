@@ -1,5 +1,3 @@
-import java.util.concurrent.atomic.AtomicInteger;
-
 class Foo {
 
     private AtomicInteger firstJobDone   = new AtomicInteger(0);
