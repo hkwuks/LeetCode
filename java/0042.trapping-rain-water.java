@@ -29,7 +29,7 @@ class Solution{
         int ans = 0, current = 0;
         Deque<Integer> stack = new LinkedList<Integer>();
         while (current < height.length) {
-            while (!stack.isEmpty() && height[current] > height[stack.peek()]) { // 栈中放入的是比栈底小的数
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) { // 栈底放入大的数
                 int top = stack.pop();
                 if (stack.isEmpty())
                     break;
