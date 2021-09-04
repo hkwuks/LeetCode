@@ -15,7 +15,7 @@
  */
 class Solution {
     public List<TreeNode> generateTrees(int n) {
-        if(n==0){
+        if (n == 0) {
             return new LinkedList<TreeNode>();
         }
         return generate_trees(1,n);
