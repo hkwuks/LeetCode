@@ -34,7 +34,7 @@ class Solution {
         int[] right = new int[len];
         Arrays.fill(right, len);
 
-        Stack<Integer > stack = new Stack <Integer >();
+        Stack<Integer> stack = new Stack<Integer>();
         for (int i = 0; i < len; ++i) {
             while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
                 right[stack.peek()] = i;
