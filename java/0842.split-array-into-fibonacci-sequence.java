@@ -7,7 +7,7 @@ class Solution {
 
     public boolean backtrack(List<Integer> list, String num, int length, int index, int sum, int prev) {
         if (index == length) {
-            return list.size >= 3;
+            return list.size() >= 3;
         }
         long currLong = 0;
         for (int i = index; i < length; ++i) {
